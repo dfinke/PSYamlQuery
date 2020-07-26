@@ -1,6 +1,5 @@
-<!-- ![](./pic/pic1_50.png =100x20) -->
 
-![](./media/flowerOfLife.jpg)
+<p style="text-align:center;"><img src="https://raw.githubusercontent.com/dfinke/PSYamlQuery/master/media/flowerOfLife.jpg" width=150/></p>
 
 ## PS Yaml Query
 
