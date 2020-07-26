@@ -11,6 +11,12 @@ PowerShell wrapper for `yq`, enables a better PowerShell pipeline experience.
 
 > Not all of the `yq` features are wrapped in PowerShell yet.
 
+# Install
+
+`yq` needs to be installed. You can install it using: `choco install yq`.
+
+Or, check here for other install options: https://mikefarah.gitbook.io/yq/#install
+
 # Try it Out
 ## Import-Yaml
 
