@@ -1,0 +1,6 @@
+something: else
+b:
+  c: 5
+---
+b:
+  c: 5

@@ -1,0 +1,18 @@
+version: '3'
+services:
+    powershellmicroservice:
+        build: .\powershell
+        ports:
+            - 8080:8080
+    pythonmicroservice:
+        build: .\python
+        ports:
+            - 8081:8081
+    denomicroservice:
+        build: .\deno
+        ports:
+            - 8082:8082
+    dotnetcoremicroservice:
+        build: .\dotnetcore
+        ports:
+            - 3000:80

@@ -1,0 +1,7 @@
+a:
+    thing_a: 
+      animal: cat
+    other: 
+      animal: frog
+    thing_b: 
+      vehicle: car
