@@ -13,9 +13,7 @@ function Import-Yaml {
     )
 
     Begin {
-        if (!(Test-YQInstalled)) {
-            Write-Error "YQ is not installed"
-        }
+        CheckYQIsInstalled
     }
 
     Process {

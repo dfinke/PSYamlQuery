@@ -11,9 +11,7 @@ function Compare-Yaml {
         $Pattern        
     )
     
-    if (!(Test-YQInstalled)) {
-        Write-Error "YQ is not installed"
-    }
-
+    CheckYQIsInstalled
+    
     yq compare $File1 $File2 $Pattern
 }

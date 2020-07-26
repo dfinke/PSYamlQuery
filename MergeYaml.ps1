@@ -11,5 +11,7 @@ function Merge-Yaml {
         [Switch]$Append
     )
     
+    CheckYQIsInstalled
+    
     yq merge --append=$Append $Files
 }
