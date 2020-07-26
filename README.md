@@ -1,6 +1,6 @@
 <!-- ![](./pic/pic1_50.png =100x20) -->
 
-![](./media/FlowerOfLife.jpg)
+![](.\media\FlowerOfLife.jpg)
 
 ## PS Yaml Query
 
