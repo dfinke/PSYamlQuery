@@ -60,6 +60,26 @@ powershellmicroservice : @{build=.\powershell; ports=System.Object[]}
 pythonmicroservice     : @{build=.\python; ports=System.Object[]}
 ```
 
+## Path Expression 
+
+`yq` also supports a path expression and returns the matching nodes the given yaml file.
+
+Using the `docker-compose.yml` example above, and the path expression `services.dotnetcoremicroservice`.
+
+```powershell
+Import-Yaml docker-compose.yml services.dotnetcoremicroservice
+```
+
+## Then
+
+```
+build        ports
+-----        -----
+.\dotnetcore {3000:80}
+```
+
+This is equivalent to to `(Import-Yaml .\sample-docker-compose.yml).services.dotnetcoremicroservice` in PowerShell, but the PoweShell approach is more typing.
+
 ## ConvertTo-Yaml
 
 ```powershell
