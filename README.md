@@ -1,5 +1,5 @@
 
-<p style="text-align:center;"><img src="https://raw.githubusercontent.com/dfinke/PSYamlQuery/master/media/flowerOfLife.jpg" width=150/></p>
+<p style="text-align:center;"><img src="https://raw.githubusercontent.com/dfinke/PSYamlQuery/master/media/food.jpg" width=275/></p>
 
 ## PS Yaml Query
 
