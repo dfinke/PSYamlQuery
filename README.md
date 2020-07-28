@@ -54,7 +54,7 @@ $r = Import-Yaml docker-compose.yml
 $r.services
 ```
 
-## Results 
+### Results 
 
 ```
 denomicroservice       : @{build=.\deno; ports=System.Object[]}
@@ -96,7 +96,7 @@ ConvertTo-Yaml '{"a":"Easy! as one two three","b":{"c":2,"d":[3,4]}}'
 ```
 
 
-## Results 
+### Results 
 
 ```
 a: Easy! as one two three
@@ -105,4 +105,122 @@ b:
   d:
     - 3
     - 4
+```
+
+## Compare-Yaml
+
+Deeply compare two yaml documents.
+
+Compares the matching yaml nodes at path expression in the two yaml documents. See path expression for more details. Difference calculated line by line, and is printed out line by line where the first character of each line is either:
+
+- a `space`, indicating no change at this line
+- `-` a minus ,indicating the line is not present in the second document (it's removed)
+- `+` a plus, indicating that the line is not present in the first document (it's added)
+If there are differences then yq will print out the differences and exit with code 1. If there are no differences, then nothing will be printed and the exit code will be 0.
+
+`animal.yml`
+
+```yaml
+animals:
+    - cats
+    - dog
+    - cheetah
+```
+
+`different-animals.yml`
+
+```yaml
+animals:
+    - cats
+    - bird
+    - cheetah
+```
+
+Do the comparison.
+
+```powershell
+Compare-Yaml animal.yml different-animals.yml
+```
+
+### Result
+
+- `cats` and `cheetah` no change
+- `dog` not present in the second file
+- `bird` not present in the first file, and was added
+
+```
+ animals:
+   - cats
+-  - dog
++  - bird
+   - cheetah
+```
+
+## Merge-Yaml
+
+Merge multiple yaml files into a one.
+
+Yaml files can be merged using the 'merge' command. Each additional file merged with the first file will set values for any key not existing already or where the key has no value.
+
+`data1.yml`
+
+```yaml
+a: simple
+b: [1, 2]
+```
+
+`data2.yml`
+
+```yaml
+a: other
+c:
+  test: 1
+```
+
+```powershell
+Merge-Yaml data1.yaml data2.yaml
+```
+
+### Result
+
+```
+a: simple
+b: [1, 2]
+c:
+  test: 1
+```
+
+## Merge-Yaml : Append values with arrays
+
+`data1.yml`
+
+```yaml
+a: simple
+b: [1, 2]
+d: hi
+```
+
+`data2.yml`
+
+```yaml
+a: something
+b: [3, 4]
+c:
+  test: 2
+  other: true
+```
+
+```powershell
+Merge-Yaml data1Append.yml data2Append.yml -Append
+```
+
+### Results
+
+```
+a: simple
+b: [1, 2, 3, 4]
+d: hi
+c:
+  test: 2
+  other: true
 ```
