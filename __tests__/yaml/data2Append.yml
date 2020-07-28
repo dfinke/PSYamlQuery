@@ -1,0 +1,5 @@
+a: something
+b: [3, 4]
+c:
+  test: 2
+  other: true
