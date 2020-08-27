@@ -12,5 +12,5 @@ function Update-Yaml {
     )
 
     $d = "-d$($DocNumber)"
-    yq w $File $Pattern $NewValue $d
+    &$script:yq w $File $Pattern $NewValue $d
 }

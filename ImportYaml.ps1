@@ -12,10 +12,6 @@ function Import-Yaml {
         $PrintMode = 'value'
     )
 
-    Begin {
-        CheckYQIsInstalled
-    }
-
     Process {
         if ($Path -is [System.IO.FileSystemInfo]) {
             $fullName = $Path.FullName            
@@ -26,9 +22,9 @@ function Import-Yaml {
 
         if ($fullName) {
             switch ($PrintMode) {
-                "value" { yq r $fullName $Pattern --tojson | ConvertFrom-Json }
-                "path" { yq r $fullName $Pattern --printMode p }
-                "pathvalue" { yq r $fullName $Pattern --printMode pv }
+                "value" { &$script:yq r $fullName $Pattern --tojson | ConvertFrom-Json }
+                "path" { &$script:yq r $fullName $Pattern --printMode p }
+                "pathvalue" { &$script:yq r $fullName $Pattern --printMode pv }
             }
         }
     }    

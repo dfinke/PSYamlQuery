@@ -11,9 +11,7 @@ function ConvertTo-Yaml {
         $Depth = 1
     )
 
-    Begin {
-        CheckYQIsInstalled
-        
+    Begin {        
         $t = @()
     }
 
@@ -26,10 +24,10 @@ function ConvertTo-Yaml {
     End {
     
         if ($target -is [String]) {
-            $target | yq r - --prettyPrint $Pattern
+            $target | &$script:yq r - --prettyPrint $Pattern
         }
         elseif ($target -is [PSCustomObject]) {
-            $t | ConvertTo-Json -Depth $Depth | yq r - --prettyPrint $Pattern
+            $t | ConvertTo-Json -Depth $Depth | &$script:yq r - --prettyPrint $Pattern
         }
     }
 }

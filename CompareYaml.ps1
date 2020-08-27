@@ -11,7 +11,5 @@ function Compare-Yaml {
         $Pattern        
     )
     
-    CheckYQIsInstalled
-    
-    yq compare $File1 $File2 $Pattern
+    &$script:yq compare $File1 $File2 $Pattern
 }
